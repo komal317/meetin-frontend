@@ -1,0 +1,123 @@
+
+      
+     <div class="admin-sidenav" style="margin-top:40px;display:grid;grid-template-columns: 10% 90% ;">
+     
+          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <a class="nav-link active" id="v-pills-users-tab" data-toggle="pill" href="#v-pills-users" role="tab" aria-controls="v-pills-users" aria-selected="true">USERS</a>
+              <a class="nav-link" id="v-pills-teams-tab" data-toggle="pill" href="#v-pills-teams" role="tab" aria-controls="v-pills-teams" aria-selected="false">TEAMS</a>
+              <a class="nav-link" id="v-pills-promote-tab" data-toggle="pill" href="#v-pills-promote" role="tab" aria-controls="v-pills-promote" aria-selected="false">PROMOTE ADMIN</a>
+          </div>
+      
+      <div class="tab-content" id="v-pills-tabContent">
+          <div class="tab-pane fade show active" id="v-pills-users" role="tabpanel" aria-labelledby="v-pills-users-tab" style="display:grid;grid-template-columns:60% 40%;">
+              <div style="width: 60%;justify-self: center;">
+                  <div class="form-group" style="font-size:2rem;color:white;margin-bottom: 2rem;text-align: center">
+                    <h7 >Employees</h7> 
+                  </div>
+                  
+                  <input type="text" id="allEmployeesSearch" placeholder="Search for employees.." title="Type in a name" autocomplete="off"> 
+                  <ul id="allEmployeesSearchList" class="allEmployeesSearchList list-group list-group-flush">
+                  </ul>
+              </div>
+              <div style="width: 80%;justify-self: center;">
+                  <form class="new-employee-form" name="new-employee-form" id="new-employee-form" onsubmit="return addNewEmployee()" style="display:grid; grid-template-columns:1fr 1fr;grid-row-gap:0px;grid-column-gap: 20px;align-items: center;">
+                  
+                    <div class="form-group" style="grid-column: 1/span 2;justify-self:center;margin-bottom: 2rem;">
+                      <h7 style="font-size:2rem;color:white;">Add New Employee</h7>
+                    </div>
+                  
+                  
+                    <div class="form-group">
+                      
+                      <input type="text" class="form-control form-input" style="border-radius: 10px;height: 55px;" id="firstName" placeholder="First Name" required autocomplete="off">
+                      <label for="firstName" class="form-label">First Name</label>
+                    </div>
+                    <div class="form-group">
+                     
+                      <input type="text" class="form-control form-input" style="border-radius: 10px;height: 55px;" id="lastName" placeholder="Last Name" required autocomplete="off">
+                      <label for="lastName" class="form-label">Last Name</label>
+                    </div>
+                    <div class="form-group" style="grid-column: 1/span 2">
+                     
+                      <input type="text" class="form-control form-input" style="border-radius: 10px;height: 55px; " id="empId" placeholder="Employee ID" required autocomplete="off">
+                      <label for="empId" class="form-label">Employee ID</label>
+                    </div>
+                    <div class="form-group" style="grid-column: 1/span 2" >
+                     
+                      <input type="email" class="form-control form-input" style="border-radius: 10px;height: 55px;" id="email" placeholder="Email ID" required autocomplete="off">
+                      <label for="email" class="form-label">Email ID</label>
+                    </div>
+                    <div class="form-group" style="grid-column: 1/span 2">
+                     
+                      <input type="text" class="form-control form-input" style="border-radius: 10px;height: 55px;" id="userName" placeholder="User Name" required autocomplete="off">
+                      <label for="userName" class="form-label">User Name</label>
+                    </div>
+                    <div class="form-group" style="grid-column: 1/span 2" >
+                     
+                      <input type="text" class="form-control form-input" style="border-radius: 10px;height: 55px;" id="password" placeholder="Password" required autocomplete="off">
+                      <label for="password" class="form-label">Password</label>
+                    </div>
+                    
+                    <div class="form-group" style="grid-column: 1/span 2;justify-self: center">
+                      <button class="btn btn-outline-light" id="button1" style="width: 100px;">ADD</button>
+                    </div>
+                  </form>
+                </div>
+
+          </div>
+          <div class="tab-pane fade" id="v-pills-teams" role="tabpanel" aria-labelledby="v-pills-teams-tab" >
+            <div style="border-bottom: 0.5px solid black"></div>
+            <div style="border-bottom: 0.5px solid black">
+              <form class="new-team-form" name="new-team-form" id="new-team-form" onsubmit="return addNewTeam()" >
+                  <div class="form-group" style="text-align:center;margin-bottom: 2rem;">
+                    <h7 style="font-size:2rem;color:white;">Add New Team</h7>
+                  </div>
+                  <div class="form-group" style="width: 100%;margin-bottom: 0px">
+                    <input type="text" class="form-control form-input" style="border-radius: 10px;height: 55px;" id="teamName" placeholder="Team Name " required autocomplete="off">
+                    <label for="teamName" class="form-label">Team Name </label>
+                  </div>
+                  <div class="form-group" style="text-align: center;margin-bottom: 2rem;">
+                    <button class="btn btn-outline-light" id="button1" style="width: 100px;">ADD</button>
+                  </div>
+                </form>
+            </div>
+            <div style="border-bottom: 0.5px solid black"></div>
+            <div style="width: 80%;justify-self: center;">
+                  <div class="form-group" style="font-size:2rem;color:white;margin-bottom: 2rem;margin-top:1rem;text-align: center">
+                      <h7 >Teams</h7> 
+                      
+                    </div>
+                    <input type="text" id="allTeamsSearch" placeholder="Search for teams.." title="Type in a team" autocomplete="off"> 
+                    <ul id="allTeamsSearchList" class="allTeamsSearchList list-group list-group-flush">
+                    </ul>
+              </div>
+             
+                  
+                  <div style="width:80%;justify-self:center;">
+                      <div class="form-group" style="text-align:center;margin-bottom: 2rem;margin-top:1rem;">
+                          <h7 style="font-size:2rem;color:white;">Team Members</h7>
+                        </div>
+                      <ul id="selectedTeamList" class="selectedTeamList list-group list-group-flush">
+                        <li class="list-group-item">No members present</li>
+                        </ul>
+                  </div>
+                  <div id="modifyContent">
+                      <div class="form-group" style="text-align:center;margin-bottom: 2rem;margin-top:1rem;">
+                          <h7 style="font-size:2rem;color:white;">Edit Members</h7>
+                      </div>
+                  </div>
+               
+          </div>
+          <div class="tab-pane fade" id="v-pills-promote" role="tabpanel" aria-labelledby="v-pills-promote-tab" >
+              <div class="form-group" style="text-align:center;margin-bottom: 2rem;grid-column:1/span 2">
+                  <h7 style="font-size:2rem;color:white;">Super Admin</h7>
+              </div>
+              <div style="width: 50%;justify-self:center">
+                <ul id="superAdminList" class="superAdminList list-group list-group-flush"></ul>
+              </div> 
+              <div id="selectForAdmin"></div>
+          </div>
+          
+      </div>
+
+  </div>  

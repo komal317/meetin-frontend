@@ -1,0 +1,357 @@
+@font-face {
+    font-family: 'luzro';
+    src: url('../fonts/LUZRO.TTF');
+}
+:root{
+    --background-blue:#63b0c5;
+    --dark-blue:#184263;
+    --white:white;
+    --loginForm-background:rgba(255,255,255, 0.5);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    font-family: 'luzro';
+    background-color: var(--background-blue) !important;
+}
+/* ----------------------LOGIN------------------------- */
+.loginPage-background {
+    position: fixed; 
+    top: -50%; 
+    left: -50%; 
+    width: 200%; 
+    height: 200%;
+}
+.loginPage-background img {
+    position: absolute; 
+    top: 0; 
+    left: -300px; 
+    right: 0; 
+    bottom: 0; 
+    margin: auto; 
+    min-width: 50%;
+    min-height: 50%;
+}
+.loginPage-logo img{
+    position: absolute;
+    top :10px;
+    right: 0;
+    width: 200px;
+}
+.loginPage-heading{
+    font-family: 'luzro';
+    position: relative;
+    text-align: center;
+    top:100px;
+    font-size: 30px;
+    color: var(--white);
+    letter-spacing: 0.2cm;
+}
+.loginPage-login{
+    position: relative;
+    text-align: center;
+    padding: 10rem;
+    padding-top:10rem;
+}
+.loginForm{
+    text-align: left;
+    padding:5rem;
+    background: var(--loginForm-background);
+    display: inline-block;
+}
+.signIn-heading{
+    letter-spacing: 0.05cm;
+    color: var(--white);
+}
+.loginForm .form-group{
+    margin-bottom:1rem;
+}
+.loginForm .form-input{
+    font-size: 1.5rem;
+    color: black;
+    padding: 0.5rem 0.5rem;
+    border-radius: 2px;
+    background-color: var(--white);
+    border: none;
+    border-bottom: 1px solid black;
+    width: 100%;
+    display: block;
+}
+.loginForm .form-label{
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-left: 0.5rem;
+    margin-top: .1rem;
+    display: block;
+    transition: all .3s;
+    color: var(--white);
+}
+.loginForm .form-input:focus{
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(#000000, .1);
+}
+.loginForm .form-input:focus:invalid{
+    border-bottom: 3px solid red;
+}
+.login-button{
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: var(--white);
+    margin-top: 2rem;
+    padding: 0.5rem 0.5rem;
+    border: none;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+
+}
+
+/* ------------------------UNIVERSAL----------------------------- */
+.form-input:not(:placeholder-shown) + .form-label,
+.form-input:focus:not(:placeholder-shown) + .form-label {
+  visibility: visible;
+  opacity: 1;
+}
+.form-input:placeholder-shown + .form-label{
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    
+}
+.row-text{
+    font-family: inherit;
+    letter-spacing:0.05cm;
+    width: 100%;
+}
+.row-text h2{
+    font-size: 40px !important;
+    width:100%;
+    text-align: center;
+    color: var(--white);
+}
+.row{
+    padding:3rem;
+} 
+
+/* --------------------------MAIN-PAGE---------------------- */
+.navbar{
+    border-bottom-left-radius: 34px;
+    border-bottom-right-radius: 34px;
+    background-color: var(--white);
+    padding:0 10px 0 5px !important;
+}
+.meetin-logo{
+    font-size: 50px !important;
+}
+.meetin-logo img{
+    width: 80px;
+    height: 80px;
+    margin-top: -10px;
+}
+.navbar-nav{
+    font-size: 25px;
+    /* align-items: flex-end; */
+}
+.navbar a{
+    color: var(--background-blue);
+    text-decoration: none;
+}
+.navbar .selected{
+    font-weight: 600;
+    color: var(--dark-blue);
+    
+}
+.profile-dropdown-ul{
+    list-style-type: none;
+    margin-bottom: 0px
+}
+.navbar-toggler {
+    border-color: var(--background-blue) !important;
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(78,177,197)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+}
+#user-name{
+    padding: .25rem 1rem;
+    color: var(--background-blue)
+}
+
+/* ----------------------------BOOKINGS-PAGE----------------------------- */
+
+.booking-row{
+    visibility:hidden;
+    height:0px;
+    overflow:hidden;
+    padding-top: 0px;
+}
+.booking-row{
+    display: none;
+}
+.badge:active{
+    transform: translateY(4px);
+}
+
+/* -------------------------------CALENDAR------------------------------------- */
+.fc-center{
+    color: var(--white);
+}
+  
+.fc-button-group .fc-button{
+    background-color: white;
+    color: black;
+    font-weight: 600;
+}
+.fc-header-toolbar{
+    
+    padding-top: 5%;
+    font-size: 0.8vw; 
+    padding-bottom: 1%;
+    
+    background-image: url("../images/calendar-head.png");
+  
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.fc-toolbar.fc-header-toolbar{
+  margin-bottom: 0px !important;
+}
+.fc-view-container{
+  background-color: var(--white);
+}
+.calendar-background{
+    display: grid !important;
+    justify-content: center;
+    grid-template-columns: 80%;
+}
+
+/* ------------------LOADER---------------- */
+#loader{
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* --------------------ROOMS--------------------- */
+.room-box-badge{
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+    font-size:20px !important;
+    background-color: var(--white);
+    color: var(--background-blue);
+    border-radius: 15px !important;
+    cursor: pointer; 
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+.room-box{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    grid-column-gap: 100px;
+    grid-template-rows:80px;
+}
+
+/*-------------- FORM MODAL---------------------- */
+.modal-header{
+    background-color: var(--background-blue);
+  }
+  .modal-title{
+    font-size: 32px;
+    color: var(--white);
+    line-height: 1 !important;
+  }
+  .fa-users{
+    font-size: 35px;
+    color: var(--white);
+  }
+  #modal-close-icon{
+    color: var(--white);
+  }
+  .bootstrap-select > .dropdown-toggle{
+    height:50px;
+    background-color: var(--white);
+    border:1px solid #ced4da;
+  }
+  .filter-option-inner-inner{
+    color:#495057;
+}
+
+/* --------------------TEAMS---------------------- */
+.card-header{
+    background-color: var(--dark-blue) !important;
+    color: var(--white);
+    font-family: 'luzro';
+    font-size: 25px;
+}
+.card-text{
+    height:500px;
+    max-height:500px;
+    overflow-y:scroll
+}
+/* ------------------ADMIN----------------------- */
+
+#allEmployeesSearch {
+    
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    margin-bottom: 12px;
+  }
+  
+  #allEmployeesSearchList {
+    padding: 0;
+    margin: 0;
+  }
+  
+  #allTeamsSearch {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+  }
+  
+  #allTeamsSearchList {
+    padding: 0;
+    margin: 0;
+  }
+  
+  
+  #allTeamsSearchList li:hover:not(.header) {
+    background-color: #eee;
+  }
+  
+  .tabcontent{
+    display: none;
+  }
+  
+  #v-pills-tab a{
+    color: var(--white);
+  }
+  .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    background-color: var(--dark-blue) !important;
+  }
+
+  #allTeamsSearchList .list-group-item.active{
+    background-color: var(--dark-blue) !important;
+    border-color: var(--dark-blue) !important;
+  }

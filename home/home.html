@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS Links -->
+    <link type="text/css" rel="stylesheet" href="../assets/styles/style.css">
+     
+    <!-- Fullcalendar links -->
+    <link type="text/css" rel="stylesheet" href="../node_modules/fullcalendar/dist/fullcalendar.min.css">
+    <link type="text/css" rel="stylesheet" href="../node_modules/@fullcalendar/daygrid/main.css">
+    <link type="text/css" rel="stylesheet" href="../node_modules/@fullcalendar/core/main.css">
+    <link type="text/css" rel="stylesheet" href="../node_modules/@fullcalendar/timegrid/main.css">
+    <link type="text/css" rel="stylesheet" href="../node_modules/@fullcalendar/list/main.css">
+    <link rel='stylesheet' href='../node_modules/fullcalendar/dist/fullcalendar.css' />
+    
+
+    <script src='../node_modules/moment/min/moment.min.js'></script>
+    <script src='../node_modules/jquery/dist/jquery.min.js'></script>
+    <script src='../node_modules/fullcalendar/dist/fullcalendar.min.js'></script>
+    <script src='../node_modules/@fullcalendar/core/main.js'></script>
+    <script src='../node_modules/@fullcalendar/daygrid/main.js'></script>
+    <script src='../node_modules/@fullcalendar/timegrid/main.js'></script>
+    <script src='../node_modules/@fullcalendar/list/main.js'></script>
+    <script src='../node_modules/@fullcalendar/interaction/main.js'></script>
+    
+    <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
+
+ 
+    <!-- Bootstrap links -->
+    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    <!-- datetime -->
+    <script src="../node_modules/bootstrap-datetime-picker/js/bootstrap-datetimepicker.js"></script>
+    <link rel="stylesheet" href="../node_modules/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css">
+   
+    <!-- icon link -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <!-- select -->
+    <link rel="stylesheet" href="../node_modules/bootstrap-select/dist/css/bootstrap-select.css">
+    <script src="../node_modules/bootstrap-select/dist/js/bootstrap-select.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md">
+        <a href="#" class="navbar-brand meetin-logo">
+            <img src="../assets/images/meetin-logo.png">
+            <span class="meetin-logo-title">Meet In</span>
+        </a>       
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+                
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ml-auto" id="nav-bar">
+                <a href="javascript:loadBookings();" class="nav-item nav-link" id="book">Home</a>
+                <a href="javascript:loadMeetings();" class="nav-item nav-link" id="meetings">Meetings</a>
+                <a href="javascript:loadTeams();" class="nav-item nav-link" id="teams">Teams</a>
+                        
+                <ul class="profile-dropdown-ul">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="profile" data-toggle="dropdown" aria-expanded="false">
+                            Profile
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" id="profile-dropdown" aria-labelledby="profile">
+                        <a class="dropdown-item" id="settings" href="javascript:loadSettings()">Settings</a>
+                        <a class="dropdown-item" href="javascript:logout();">Logout</a>
+                        <div class="dropdown-divider"></div>
+                        <span id="user-name"></span>
+                        </div>
+                    </li>
+                </ul>
+                        
+            </div>
+        </div>
+                        
+    </nav>
+
+    <div class="text-center" id="loader">
+        <div class="spinner-border " role="status" style="margin-top: 25%">
+          <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    
+    <div id="meeting-modal"></div>
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="confirmModalTitle"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="confirmModalBody">
+              
+            </div>
+            <div class="modal-footer" id="confirmModalFooter" style="justify-content:center">
+              <button type="button" id="confirmModalSave" class="btn btn-outline-info">Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="error-popup" tabindex="-1" role="dialog" aria-labelledby="error-popupTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              There was an internal error. Try again later.
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    <div class="container-fluid"></div>
+
+    
+    <script src="../assets/api/api.js"></script>
+    <script src="home.js"></script>
+    <script src="../assets/api/meetingModal.js"></script>
+    
+</body>
+</html>
